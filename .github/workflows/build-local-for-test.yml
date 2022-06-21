@@ -3,10 +3,10 @@ name: "commit-master"
 on:
   push:
     branches: 
-    - 'master1'
+    - 'master'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: 	macos-latest
 
     steps:
     - name: Check Out 
@@ -24,4 +24,4 @@ jobs:
     - name: "build springcloud demo for linux/amd64"
       uses: huaweicloud/swr-multiplatform-build-action@v1.0.0
       with:
-        image_tag: swr.cn-north-4.myhuaweicloud.com/hcloudcli/jdkdemo:jdk19-v1.0.0.4
+        image_tag: swr.cn-north-4.myhuaweicloud.com/actions/jdkdemo:jdk19-v1.0.0.6
