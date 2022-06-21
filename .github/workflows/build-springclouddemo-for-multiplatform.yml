@@ -16,7 +16,7 @@ jobs:
     - name: Set up JDK 19 for maven build
       uses: actions/setup-java@v1
       with:
-        java-version: 19
+        java-version: 8
 
     # 完成java项目打包
     - name: build maven project
@@ -26,9 +26,9 @@ jobs:
     - name: Log in to HuaweiCloud SWR
       uses: huaweicloud/swr-login@v1
       with:
-      region: cn-north-4
-      access-key-id: ${{ secrets.ACCESSKEY }}
-      access-key-secret: ${{ secrets.SECRETACCESSKEY }}
+        region: cn-north-4
+        access-key-id: ${{ secrets.ACCESSKEY }}
+        access-key-secret: ${{ secrets.SECRETACCESSKEY }}
     # 设置 docker 环境
     - name: Set up Docker Buildx
       id: buildx
@@ -37,7 +37,7 @@ jobs:
     - name: "build springcloud demo for linux/amd64,linux/arm64/v8,windows/amd64"
       uses: huaweicloud/swr-multiplatform-build-action@v1.0.0
       with:
-        image_tag: swr.cn-north-4.myhuaweicloud.com/hcloudcli/jdkdemo:jdk19-v1.0.0.4
+        image_tag: swr.cn-north-4.myhuaweicloud.com/actions/jdkdemo:jdk19-v1.06.21.01
         platforms: linux/amd64,linux/arm64/v8,windows/amd64
         use_latest_buildx: false
         push: true
